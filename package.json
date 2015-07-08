@@ -12,7 +12,8 @@
     "dependencies" : {
         "mkdirp" : "~0.3.1",
         "semver" : "~1.0.13",
-        "request" : "~2.9.200"
+        "request" : "~2.9.200",
+        "os-homedir": "^1.0.0"
     },
     "keywords" : [
         "travis",

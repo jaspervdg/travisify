@@ -43,7 +43,7 @@ withConfig(function (config) {
                 var pkg = JSON.parse(fs.readFileSync(dir + '/package.json'));
                 
                 var sv = (pkg.engines || {}).node || '>=0.4';
-                var vs = [ '0.8.1', '0.10.0' ].filter(function (v) {
+                var vs = [ '0.8.1', '0.10.0', '0.12.0' ].filter(function (v) {
                     return semver.satisfies(v, sv);
                 });
                 if (vs.length === 0) {
@@ -59,7 +59,8 @@ withConfig(function (config) {
                             return '  - "' + v.replace(/\.\d+$/, '') + '"';
                         }).join('\n'),
                         'before_install:',
-                        '  - npm install -g npm@~1.4.6'
+                        '  - npm install -g npm@">=1.4.6"',
+                        'sudo: false'
                     ].join('\n') + '\n');
                     
                     console.log('# created a .travis.yml');
